@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — QR Lens</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0b0b14; color: #fff; max-width: 680px; margin: 0 auto; padding: 48px 24px 64px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  h1 { font-size: 28px; margin-bottom: 6px; }
+  .date { color: #9092a8; margin-bottom: 40px; font-size: 14px; }
+  h2 { font-size: 17px; font-weight: 600; margin-top: 36px; margin-bottom: 8px; }
+  p { margin: 8px 0; color: #c8cadc; font-size: 15px; }
+  a { color: #ff9a32; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back { display: inline-block; margin-bottom: 40px; font-size: 14px; color: #9092a8; }
+</style>
+</head>
+<body>
+<a class="back" href="/">← QR Lens</a>
+<h1>Privacy Policy for QR Lens</h1>
+<p class="date">Last updated: May 2026</p>
+
+<h2>What data QR Lens collects</h2>
+<p>On the first launch of each calendar day, QR Lens contacts our server to check whether an app update is recommended or required. As part of this request, the app sends a SHA-256 hash of a randomly generated, device-local identifier stored in the iOS Keychain. This hash is used solely to count how many devices use the app each day. The hash cannot be reversed to identify your device or you, is not linked to your identity, and is never shared with third parties.</p>
+<p>No name, email address, IP address, location, or any other personal data is collected or stored.</p>
+
+<h2>Camera access</h2>
+<p>QR Lens requests access to your device camera solely to detect and decode optical codes (QR, barcode, Data Matrix, PDF417, Aztec, and 1D barcodes). Camera frames are processed on-device in real time using Apple's Vision framework. No camera data is transmitted off your device.</p>
+
+<h2>Photo library access</h2>
+<p>QR Lens may request access to your photo library if you choose to import an existing image to scan a code from it. Photos are accessed only when you explicitly select them. No photos are transmitted off your device.</p>
+
+<h2>Scanned code data</h2>
+<p>All decoded payload data — including Wi-Fi credentials, contacts, OTP secrets, URLs, and raw bytes — is stored only in the app's local library on your device. It is never uploaded to our servers or transmitted to any third party.</p>
+
+<h2>Sharing and export</h2>
+<p>When you export a capture as JSON, Markdown, or Excel, the file is generated on your device and handed to the iOS standard share sheet. You choose where to send it. QR Lens has no involvement in or knowledge of the destination.</p>
+
+<h2>No URL preview, no SKU lookup, no AI</h2>
+<p>QR Lens does not preview URLs, does not look up product information from barcodes, and does not use AI or any cloud service to interpret scanned data. Decoding and parsing happens entirely on your device.</p>
+
+<h2>Children</h2>
+<p>QR Lens does not knowingly collect data from anyone, including children under 13.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will be posted at this URL with an updated date.</p>
+
+<h2>Contact</h2>
+<p>For any questions, please open an issue at <a href="https://github.com/henriklex/qrlens/issues">github.com/henriklex/qrlens/issues</a>.</p>
+</body>
+</html>

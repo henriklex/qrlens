@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Lens — Free QR &amp; Barcode Scanner for iPhone</title>
+<meta name="description" content="A QR and barcode scanner built for inspecting, not just opening. Full payload, symbology, byte count, parsed fields. On-device. No ads, no accounts, no cloud.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:      #0b0b14;
+    --surface: #13131f;
+    --orange:  #ff9a32;
+    --white:   #ffffff;
+    --muted:   #9092a8;
+    --border:  #1e2030;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 72px 24px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-text { display: flex; flex-direction: column; gap: 24px; }
+
+  .app-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .app-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .app-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.01em;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 440px;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 22px;
+    border-radius: 12px;
+    width: fit-content;
+    transition: opacity 0.15s;
+  }
+
+  .download-btn:hover { opacity: 0.85; }
+
+  .download-btn svg { flex-shrink: 0; }
+
+  .pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 99px;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-frame {
+    position: relative;
+    width: 240px;
+  }
+
+  .phone-frame img {
+    width: 100%;
+    border-radius: 28px;
+    border: 6px solid #1e2030;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    display: block;
+  }
+
+  /* ── FEATURES ─────────────────────────────────── */
+  .features {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+
+  .feature-icon {
+    margin-bottom: 16px;
+    color: var(--orange);
+  }
+
+  .feature h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .feature p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ───────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  footer a:hover { color: var(--white); }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 640px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 48px 20px 40px;
+      text-align: center;
+    }
+    .hero-text { align-items: center; }
+    .hero-sub { text-align: center; }
+    .hero-image { order: -1; }
+    .phone-frame { width: 180px; }
+    .features {
+      grid-template-columns: 1fr;
+      padding: 0 20px 60px;
+    }
+    .pills { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="app-badge">
+      <div class="app-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4"  y="4"  width="6" height="6" fill="#ff9a32"/>
+          <rect x="18" y="4"  width="6" height="6" fill="#ff9a32"/>
+          <rect x="4"  y="18" width="6" height="6" fill="#ff9a32"/>
+          <rect x="12" y="12" width="2" height="2" fill="#ff9a32"/>
+          <rect x="16" y="14" width="2" height="2" fill="#ff9a32"/>
+          <rect x="14" y="18" width="2" height="2" fill="#ff9a32"/>
+          <rect x="18" y="20" width="2" height="2" fill="#ff9a32"/>
+          <rect x="20" y="16" width="2" height="2" fill="#ff9a32"/>
+        </svg>
+      </div>
+      <span class="app-name">QR Lens</span>
+    </div>
+
+    <h1>Decode <em>and inspect</em><br>every optical code.</h1>
+
+    <p class="hero-sub">
+      QR, barcode, Data Matrix, PDF417, Aztec. Full payload, symbology, byte count, and parsed structured fields. On-device. No ads, no accounts, no cloud.
+    </p>
+
+    <a class="download-btn" href="https://apps.apple.com/app/id6772594695">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      Download on the App Store
+    </a>
+
+    <div class="pills">
+      <span class="pill">Free</span>
+      <span class="pill">No ads</span>
+      <span class="pill">100% on-device</span>
+      <span class="pill">iPhone</span>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="phone-frame">
+      <img src="assets/screenshot.jpg" alt="QR Lens — Detail view showing a parsed Wi-Fi QR payload with full metadata">
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <div class="feature-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+        <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+        <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+        <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+        <rect x="7" y="7" width="10" height="10" rx="1"/>
+      </svg>
+    </div>
+    <h3>Every optical code</h3>
+    <p>QR, Data Matrix, PDF417, Aztec, EAN, UPC, Code 39/93/128, Codabar, GS1 DataBar. One scanner, all formats.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+      </svg>
+    </div>
+    <h3>Inspect, don't just open</h3>
+    <p>See the full payload, symbology, byte count, ECC level, and parsed fields. Built for developers and engineers.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"/>
+      </svg>
+    </div>
+    <h3>Stays on your device</h3>
+    <p>No account. No subscription. No cloud upload. Export to JSON, Markdown, or Excel via the system share sheet.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="https://github.com/henriklex/qrlens/issues">Support</a>
+    &nbsp;·&nbsp;
+    <a href="privacy.html">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    &copy; 2026 Henrik Lexow
+  </p>
+</footer>
+
+</body>
+</html>
